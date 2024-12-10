@@ -1,0 +1,267 @@
+:root{
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+
+    --primario: #784d3C;
+    --gris: #e1e1e1;
+    --blanco: #ffffff;
+    --negro: #000000;
+}
+html{
+    box-sizing: border-box; 
+    font-size: 62.5%; /* 1rem = 10px*/
+}
+
+*,*:before, *:after{
+    box-sizing: inherit;
+}
+
+body{
+    font-family: var(--fuenteParrafos);
+    font-size: 2rem;
+    line-height: 2;
+}
+
+
+header{
+    background-image: url('../img/banner.jpg');  /*Lo he puesto aquí porque no funcionan los de arriba*/
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/**Globales**/
+
+
+table {
+    background-color: antiquewhite;
+    margin: 0 auto;
+}
+
+table input[type="text"],a {
+    color: black;
+    background-color: black;
+}
+
+select {
+    width: 30rem; !important;
+}
+
+select option{
+    font-size: 1.5rem;
+}
+
+textarea {
+    width: 30rem;
+    font-size: 1.5rem;
+}
+
+input[type='text'],[type='password'],[type='date'],[type='email'] {
+    font-size: 1.5rem;
+    width: 30rem;
+}
+
+#buscar {
+    width: 20rem
+}
+
+
+div {
+    margin-top: 5rem;
+}
+
+a:hover {
+    color: white;
+
+    font-weight: bold;
+}
+
+nav a:hover {
+    font-size: 2.2rem;
+    font-weight: inherit; /* No cambiar el peso de la fuente */
+}
+
+.contenedor{
+    width: min(75%, 120rem);
+    margin: 0 auto;
+}
+    
+
+a{
+    color: white;
+    text-decoration: none;
+
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--fuenteHeading);
+    line-height: 1.2; /*Si la fuente es muy grande, el interlineado será demasiado grande*/
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+.title {
+    padding: 5rem;
+    text-align: center;
+    font-size: 46px; /* Tamaño de la fuente */
+    font-family: 'Playfair Display', serif; /* Fuente elegante */
+    color: #964B00;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.2rem;
+}
+    
+h4 {
+    font-size: 2.8rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+
+/** Utilidades **/
+.no-margin{
+    margin: 0;
+}
+.no-padding {
+    padding: 0;
+}
+
+.centrar-texto{
+    text-align: center;
+}
+
+
+.header__texto{
+    text-align: center;
+    color: var(--blanco);  
+    margin-top: 5rem;
+}
+
+@media (min-width: 768px) {
+    .header__texto{
+        margin-top: 10rem;
+    }
+}
+
+.barra{
+
+    padding-top: 4rem;
+
+}
+
+@media (min-width: 768px) {
+    .barra{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+
+    }
+}
+
+.logo{
+    color: var(--blanco);
+}
+
+.logo__nombre{
+   font-weight: 400;
+}
+
+.logo__bold{
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .navegacion{
+        display: flex;
+        gap: 3rem;
+    }
+}
+
+.navegacion {
+
+}
+
+.navegacion_enlace{
+    display: block;
+    line-height: 1.8;
+    text-align: center;
+    color: var(--blanco);
+    background-color: transparent;
+}
+
+
+
+.entradas-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre entradas */
+}
+
+.entrada {
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    margin: 0 auto;
+    width: 60rem;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-image: url('../img/banner.jpg');
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: overlay;
+    background-size: contain;
+
+}
+
+.entrada h3 {
+    margin-top: 0;
+}
+
+.entrada-actions {
+    margin-top: 10px;
+}
+
+.boton{
+    display: block;
+    color:var(--blanco);
+    background-color: #784d3C;
+    text-align: center;
+    padding: 0.7rem 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border: none;
+}
+
+
+
+.boton:hover{
+    cursor:pointer;
+}
+@media (min-width: 768px) {
+    .boton{
+        display: inline-block;
+    }
+}
+
+
+.footer{
+    background-color: var(--negro);
+    padding-bottom: 3rem;
+    margin-top: 4rem;
+}

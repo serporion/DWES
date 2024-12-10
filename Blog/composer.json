@@ -1,0 +1,27 @@
+{
+    "name": "serporion/blog",
+    "description": "Blog de Cafe",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Serporion\\Blog\\": "./",
+            "Controllers\\" : "./Controllers",
+            "Models\\" : "./Models",
+            "Lib\\" : "./Lib",
+            "Repositories\\" : "./Repositories",
+            "Services\\" : "./Services",
+            "src\\css\\" : "./src/css"
+        }
+    },
+    "authors": [
+        {
+            "name": "serporion",
+            "email": "serporionGit@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "stefangabos/zebra_pagination": "^2.4",
+        "ext-pdo": "*"
+    }
+}
