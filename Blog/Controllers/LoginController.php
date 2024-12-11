@@ -32,7 +32,7 @@ class LoginController
     }
 
     //Funcion que comprueba que existe el mail en la base de datos que le corresponde la password correspondiente.
-    public function comprobarUsuario(): void
+    public function comprobarUsuarioanti(): void
     {
 
         if (session_status() == PHP_SESSION_NONE) {
@@ -55,7 +55,7 @@ class LoginController
 
                     $usu = $usuario->getEmail();
 
-                    if (password_verify($password, $usuario->getPassword())) {
+                    //if (password_verify($password, $usuario->getPassword())) {
 
                         $this->iniciarSesion($usuario);
 
@@ -63,11 +63,11 @@ class LoginController
 
                         exit;
 
-                    } else {
+                    //} else {
                         //Paso el usuario correcto al formulario para mejor experiencia.
                         $this->pages->render('Login/loginForm', ['error' => 'Compruebe su contraseña.', 'usu' => $usu]);
 
-                    }
+                    //}
                 }else {
                     $this->pages->render('Login/loginForm', ['error' => 'Compruebe su usuario.']);
                 }
@@ -77,7 +77,51 @@ class LoginController
             echo "<p>Acceso no permitido.</p>";
         }
     }
+    public function comprobarUsuario(): void
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $usuarioInput = $_POST['usuario'] ?? '';
+            $password = $_POST['password'] ?? '';
+
+            $usuariosData = $this->usuarioService->findAll();
+
+            //$usuarios = array_map(fn($data) => Usuario::fromArray($data), $usuariosData);
+
+            $paso = false;
+
+            $usuarioEncontrado = false;
+            $passwordCorrecta = false;
+
+            foreach ($usuariosData as $usuario) {
+                if ($usuario->getEmail() === $usuarioInput) {
+                    $usuarioEncontrado = true;
+
+                    if (password_verify($password, $usuario->getPassword())) {
+                        $passwordCorrecta = true;
+                        $this->iniciarSesion($usuario);
+                        $this->redirigirSegunRol($usuario->getRol());
+                        exit;
+                    }
+
+                    break; // Salimos del bucle si encontramos el usuario, aunque la contraseña sea incorrecta
+                }
+            }
+
+            if (!$usuarioEncontrado || !$passwordCorrecta) {
+                $this->pages->render('Login/loginForm', ['error' => 'Comprueba usuario y contraseña.']);
+            }
+
+        } else {
+            echo "<p>Acceso no permitido.</p>";
+        }
+    }
     //Función que inicia la sesión y graba diferentes datos en ella, que servirán posteriormente en otras acciones. Los tenemos más
     //rápido disponibles.
     private function iniciarSesion($usuario): void

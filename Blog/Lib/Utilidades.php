@@ -76,7 +76,7 @@ class Utilidades {
         if (!preg_match('/[a-z]/', $password)) {
             return ["error" => "La contraseña debe contener al menos una letra minúscula", "valor" => null];
         }
-
+        
         return ["error" => null, "valor" => $password];
     }
 

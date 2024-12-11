@@ -21,15 +21,15 @@ unset($_SESSION['errores'], $_SESSION['valores']); // Limpiar después de usarlo
         </div>
     <?php endif; ?>
     <div class = "col-md-12 well">
-        <!--<form role = "form" id = "myForm" action = "/index.php?controller=Login&action=comprobarUsuario" method = "post" enctype="multipart/form-data">-->
+
         <form role = "form" id = "myForm" action = "<?=BASE_URL?>Login/comprobarUsuario" method = "post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="usuario" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="nombreHelp" minLength = "5" value="<?php echo isset($usu) ? $usu : ''; ?>" required = "true" placeholder="Ingresa tu correo electrónico">
+                <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="usuarioHelp" minLength = "5" value="<?php echo isset($usu) ? $usu : ''; ?>" required = "true" placeholder="Ingresa tu correo electrónico">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" aria-describedby="edadHelp" required = "true" >
+                <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp" required = "true" >
 
             </div>
 
